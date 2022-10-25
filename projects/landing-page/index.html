@@ -1,59 +1,110 @@
-<!DOCTYPE >
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
-  <!-- Load Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
-  <!-- HTML Follows BEM naming conventions 
-  IDs are only used for sections to connect menu achors to sections -->
-  <header class="page__header">
-    <nav class="navbar__menu">
-      <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list"></ul>
-    </nav>
-  </header>
-  <main>
-    <header class="main__hero">
-      <h1>Landing Page </h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro"
+    />
+    <!-- Load Styles -->
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="page__header">
+      <nav class="navbar__menu">
+        <ul id="navbar__list">
+          <li><a href="index.html" class="menu__link" id="active">Home</a></li>
+          <li>
+            <a
+              href="#"
+              class="menu__link"
+              id="s1"
+              onclick="myFunction()"
+              >About</a
+            >
+          </li>
+          <li><a href="#section2" class="menu__link" id="s2">Contact Us</a></li>
+          <li><a href="#section3" class="menu__link" id="s3">Sign In</a></li>
+        </ul>
+      </nav>
     </header>
-    <!-- Each Section has an ID (used for the anchor) and 
-    a data attribute that will populate the li node.
-    Adding more sections will automatically populate nav.
-    The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="your-active-class">
-      <div class="landing__container">
-        <h2>Section 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section2" data-nav="Section 2">
-      <div class="landing__container">
-        <h2>Section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+    <main>
+      <header class="main__hero">
+        <h1>To Do List</h1>
+      </header>
+      <section id="section1" class="your-active-class">
+        <div class="landing__container">
+          <h2>About</h2>
+          <p>
+            This site to help you add your tasks, organize your life, achieve
+            more every day and reach that mental clarity you've been longing for
+          </p>
+          <p>
+            Add tasks like “Read work emails every day at 10am” to fill your
+            to-do list in seconds using Todoist’s powerful natural language
+            recognition and recurring dates.Your to-do lists are automatically
+            sorted into Today, Upcoming and custom Filter views to help you
+            focus on your most important things.
+          </p>
+        </div>
+      </section>
+      <section id="section2">
+        <div class="landing__container">
+          <h2>Contact Us</h2>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section3" data-nav="Section 3">
-      <div class="landing__container">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+          <div class="form">
+            <div class="fields">
+              <input type="text" placeholder="name" />
+              <input type="text" placeholder="email address" />
+              <input type="text" placeholder="phone number" />
+              <input type="text" placeholder="subject" />
+            </div>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-  </main>
-  <footer class="page__footer">
-    <p>&copy Udacity</p>
-  </footer>
-
-</body>
+            <div class="msg">
+              <textarea placeholder="message"></textarea>
+              <div class="button">send</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section3">
+        <div class="landing__container">
+          <h2>Sign In</h2>
+          <form action="">
+            <input
+              type="text"
+              name="username"
+              placeholder="Max 10 chars only"
+              class="data"
+            />
+            <input
+              type="text"
+              name="age"
+              placeholder="can't be empty"
+              class="data"
+            />
+            <input type="submit" value="Submit Data" />
+          </form>
+        </div>
+      </section>
+    </main>
+    <span class="up">Up</span>
+    <footer class="page__footer">
+      <p>&copy Udacity</p>
+    </footer>
+    <script src="app.js">
+      function myFunction() {
+        const element = document.getElementById("section1");
+        element.scrollIntoView();
+      }
+    </script>
+  </body>
 </html>
