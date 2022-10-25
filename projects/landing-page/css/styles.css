@@ -9,215 +9,331 @@
 */
 
 
-/* ---- Base Rules ---- */
+:root {
+  --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+  --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+  --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+  --inner-shadow-0: inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+}
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* --- base rules --- */
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
-    margin: 0;
-    font-family: 'Merriweather', serif;
-    color: #fff;
+  background: rgb(136, 203, 171);
+  background: linear-gradient(
+    0deg,
+    rgb(77, 149, 250) 100%,
+    rgba(0, 13, 60, 1) 0%
+  );
+  margin: 0;
+  font-family: "montserrat", serif;
+  color: #fff;
 }
 
-
-/* Typeography General*/
+/* --- typeography general ---- */
 h1 {
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 3em;
-    margin: 2em 1rem;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 3em;
+  margin: 2em 1rem;
 }
-
-@media only screen and (min-width: 35em){
-    h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
-    }
+@media only screen and (min-width: 35em) {
+  h1 {
+    font-size: 7em;
+    margin: 2em 4rem 1em;
+  }
 }
-
 h2 {
-    border-bottom: 1px solid #cc1;
-    font-family: 'Oxygen', Sans-Serif;
-    font-size: 3em;
-    color: #fff;
+  border-bottom: 1px solid #cc1;
+  font-family: "Oxygen", Sans-Serif;
+  font-size: 3em;
+  color: #fff;
 }
-
 p {
-    line-height: 1.6em;
-    color: #eee;
+  line-height: 1.6em;
+  color: #eee;
 }
 
-/* ---- Layout Rules ---- */
+/* ----- layout rules ---- */
 main {
-    margin: 10vh 1em 10vh;
+  margin: 5px;
 }
-
-.main-hero {
-    min-height: 40vh;
-    padding-top: 3em;
+.main__hero {
+  min-height: 40vh;
+  padding-top: 3px;
+  padding-bottom: 15em;
+  font-family: "Crimson Pro", serif;
+  display: flex;
+  justify-content: center;
 }
-
+.main__hero .logo {
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+}
+.main__hero h1 {
+  padding: 25px;
+  border: 0;
+  margin: 50;
+  align-self: center;
+}
 section {
-    position: relative;
-    min-height: 80vh;
+  position: relative;
+  min-height: 80vh;
 }
 
-
-/* ---- Module Rules ---- */
-
-/* Navigation Styles*/
+/* ---- module rules ---- */
+/* ---- navigation styles ---- */
+.navbar__menu {
+  overflow: hidden;
+}
 .navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
-    text-align: right;
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+  background: rgb(77, 149, 250);
 }
-
 .navbar__menu li {
-    display: inline-block;
+  display: inline-block;
+  font-size: x-large;
 }
-
 .navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: rgb(77, 149, 250);
 }
-
+@media (max-width: 944px) {
+  .navbar__menu .menu__link {
+    font-size: 17px;
+  }
+}
 .navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
-    transition: ease 0.3s all;
+  background: #333;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+.menu__link #active {
+  border: 1px solid white;
+  transition: 0.5s;
+}
+@media (max-width: 1048px) {
+  .navbar__menu ul {
+    font-size: 32px;
+    padding-left: 60px;
+  }
+  .navbar__menu .menu__link {
+    font-size: 17px;
+  }
 }
 
-/* Header Styles */
+/* ---- header styles ---- */
 .page__header {
-    background: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
 }
 
-/* Footer Styles */
+.up {
+  position: fixed;
+  bottom: 10px;
+  right: -30px;
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  font-family: Arial, Tahoma;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.up .show {
+  right: 10px;
+}
+
+/* ---- footer styles ---- */
 .page__footer {
-    background: #000;
-    padding: 3em;
-    color: #fff;
+  background: #000;
+  padding: 3em;
+  color: #fff;
+}
+.page__footer p {
+  color: #fff;
 }
 
-.page__footer p{
-    color: #fff;
-}
-
-
-/* ---- Theme Rules ---- */
-/* Landing Container Styles */
+/* ---- theme rules ---- */
+/* landing container styles */
 .landing__container {
-    padding: 1em;
-    text-align: left;
+  padding: 1em;
+  text-align: left;
+}
+.landing__container input {
+  margin: 10px;
+  display: block;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.landing__container .data {
+  width: 40%;
+  padding: 10px;
 }
 
-@media only screen and (min-width: 35em){
-    .landing__container {
-        max-width: 50em;
-        padding: 4em;
-    }
+#section2 .landing__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.landing__container .form {
+  display: flex;
+}
+.landing__container .form .fields {
+  display: flex;
+  margin-right: 4%;
+  flex-direction: column;
+}
+.landing__container .form .msg {
+  width: 50%;
+}
+.landing__container .form input,
+#section2 .landing__container .form .msg textarea {
+  margin: 10px 0;
+  border: 0px;
+  background: transparent;
+  border-bottom: 2px solid #c5ecff;
+  padding: 10px;
+  color: #ffffff;
+}
+.landing__container .form .msg textarea {
+  height: 190px;
+  width: 200px;
+}
+.button {
+  text-align: center;
+  border-radius: 5px;
+  padding: 15px;
+  background: #39b7dd;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+}
+@media only screen and (min-width: 35em) {
+  .landing__container {
+    max-width: 50em;
+    padding: 4em;
+  }
+}
+section::nth-of-type(even) .landing__container {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
 }
 
-section:nth-of-type(even) .landing__container {
-    margin-right: 0;
-    margin-left: auto;
-    text-align: right; 
-}
-
-/* Background Circles */
-/* Note that background circles are created with psuedo elements before and after */
-/* Circles appear to be random do to use of :nth-of-type psuedo class */
+/* background circles */
+/* note that background circles are created with psuedo elements before and after */
+/* circles appear to be random do to use of :nth-of-type psuedo class */
 section:nth-of-type(odd) .landing__container::before {
-    content: '';
-    background: rgba(255, 255, 255, 0.187);
-    position: absolute;
-    z-index: -5;
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -5;
+  width: 20vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
 }
-
 section:nth-of-type(even) .landing__container::before {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
 }
-
 section:nth-of-type(3n) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
 }
-
 section:nth-of-type(3n + 1) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 20vw;
-    bottom: -5em;
-    z-index: -5;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  right: 20vw;
+  bottom: -5em;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: ease 0.5s all;
 }
 
-
-/* ---- Theme State Rules ---- */
-/* Section Active Styles */
-/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+/* ---- theme state rules ---- */
+/* section active styles */
+/* note: your_active_class is apllied through javascript. you should update the class here and in the index.html to what you set in your javascript file */
 section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
-
 section.your-active-class .landing__container::before {
-    opacity: 1;
-    animation: rotate 4s linear 0s infinite forwards;
+  opacity: 1;
+  animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
-section.your-active-class .landing__container::after {
-    opacity: 1;
-    animation: rotate 5s linear 0s infinite forwards reverse;
-}
-
-/* Section Active Styles Keyframe Animations */
+/* section active styles keyframe animations */
 @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
 }
